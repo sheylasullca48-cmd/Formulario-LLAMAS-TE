@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cuestionarios cuantitativo y cualitativo sobre la experiencia de espera en Llamas-te Restolounge.">
+  <title>Encuestas | Llamas-te Restolounge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">EXPERIENCIA DEL CLIENTE</p>
+      <h1>Llamas-te <span>Restolounge</span></h1>
+      <p class="hero__text">Tu experiencia nos ayuda a mejorar. Elige una encuesta y comparte tu opinión sobre el tiempo de espera y la atención.</p>
+      <div class="hero__tags"><span>Cuestionario cuantitativo</span><span>Cuestionario cualitativo</span></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>¿Qué encuesta deseas responder?</h2>
+      <p>Responde solo una sección por vez. Completa los campos que correspondan y envía tus respuestas.</p>
+    </section>
+
+    <div class="tabs" role="tablist" aria-label="Tipo de cuestionario">
+      <button class="tab is-active" id="tab-quant" type="button" role="tab" aria-selected="true" aria-controls="quant-panel" data-panel="quant-panel">01 · Cuantitativo</button>
+      <button class="tab" id="tab-qual" type="button" role="tab" aria-selected="false" aria-controls="qual-panel" data-panel="qual-panel">02 · Cualitativo</button>
+    </div>
+
+    <section class="panel is-visible" id="quant-panel" role="tabpanel" aria-labelledby="tab-quant">
+      <div class="panel-heading"><span class="number">01</span><div><h2>Cuestionario cuantitativo</h2><p>Registro de espera, satisfacción, percepción y ambiente.</p></div></div>
+      <form id="quant-form" data-form-type="Cuantitativo">
+        <fieldset><legend>I. Registro de observación</legend>
+          <div class="grid two">
+            <label>Código de usuario <input name="codigo_usuario" type="text" placeholder="Ej. U-001"></label>
+            <label>Fecha <input name="fecha" type="date" required></label>
+            <label>Turno <select name="turno"><option value="">Selecciona…</option><option>Mañana</option><option>Tarde</option><option>Noche</option></select></label>
+            <label>Hora de llegada <input name="hora_llegada" type="time"></label>
+            <label>Hora programada (si aplica) <input name="hora_programada" type="time"></label>
+            <label>Hora de inicio del servicio <input name="hora_inicio_servicio" type="time"></label>
+            <label>Ambiente / distractor <select name="distractor"><option value="">Selecciona…</option><option>TV o pantalla activa</option><option>Sin TV o pantalla</option><option>Otro</option></select></label>
+            <label>Tiempo total de espera observado T1 (minutos) <input name="t1_minutos" type="number" min="0" step="1"></label>
+            <label>Demora real T2 (minutos) <input name="t2_minutos" type="number" min="0" step="1"></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>II. Percepción de la espera</legend>
+          <div class="grid two">
+            <label>P1. Hora programada (si corresponde) <input name="p1_hora_programada" type="time"></label>
+            <label>P2. ¿Cuántos minutos calculas que esperaste desde tu llegada? <input name="p2_espera_estimada_min" type="number" min="0" step="1" required></label>
+            <label>P3. ¿Cuántos minutos calculas que esperaste desde la hora programada hasta que te atendieron? <input name="p3_demora_estimada_min" type="number" min="0" step="1" required></label>
+            <label>P4. ¿Cuál es el máximo de minutos que consideras tolerable esperar? <input name="p4_maximo_tolerable_min" type="number" min="0" step="1" required></label>
+            <label>P5. ¿Qué tan satisfecho/a estás con el servicio? <select name="p5_satisfaccion" required><option value="">Escala de 1 a 10…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select><small>1 = nada satisfecho/a · 10 = muy satisfecho/a</small></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>III. Percepción cognitiva y emocional</legend><p class="helper">Selecciona una respuesta del 1 al 5 en cada pregunta.</p>
+          <div class="grid two">
+            <label>P6. ¿Cómo percibiste la duración de la espera? <select name="p6_duracion" required><option value="">Selecciona…</option><option value="1">1 · Muy corta</option><option value="2">2 · Corta</option><option value="3">3 · Ni corta ni larga</option><option value="4">4 · Larga</option><option value="5">5 · Muy larga</option></select></label>
+            <label>P7. ¿Cuánta irritación sentiste? <select name="p7_irritacion" required><option value="">Selecciona…</option><option value="1">1 · Ninguna / tranquilo/a</option><option value="2">2 · Leve</option><option value="3">3 · Moderada</option><option value="4">4 · Alta</option><option value="5">5 · Muy alta</option></select></label>
+            <label>P8. ¿Qué tan justa te pareció la atención? <select name="p8_justicia" required><option value="">Selecciona…</option><option value="1">1 · Muy justa / equitativa</option><option value="2">2 · Justa</option><option value="3">3 · Ni justa ni injusta</option><option value="4">4 · Injusta</option><option value="5">5 · Muy injusta</option></select></label>
+            <label>P9. ¿Cuánto malestar te produjo la espera? <select name="p9_malestar" required><option value="">Selecciona…</option><option value="1">1 · Ninguno/a, paciente</option><option value="2">2 · Leve</option><option value="3">3 · Moderado</option><option value="4">4 · Alto</option><option value="5">5 · Muy molesto/a</option></select></label>
+            <label>P10. ¿Cómo te sentiste respecto al entretenimiento durante la espera? <select name="p10_entretenimiento" required><option value="">Selecciona…</option><option value="1">1 · Entretenido/a</option><option value="2">2 · Algo entretenido/a</option><option value="3">3 · Neutral</option><option value="4">4 · Aburrido/a</option><option value="5">5 · Muy aburrido/a</option></select></label>
+            <label>P11. ¿Cómo te sentiste emocionalmente? <select name="p11_estado_emocional" required><option value="">Selecciona…</option><option value="1">1 · Relajado/a y tranquilo/a</option><option value="2">2 · Algo tranquilo/a</option><option value="3">3 · Neutral</option><option value="4">4 · Estresado/a o ansioso/a</option><option value="5">5 · Muy estresado/a o ansioso/a</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>IV. Evaluación del ambiente</legend><p class="helper">Escala de 1 a 5: 1 = muy deficiente, 5 = excelente. Para la pantalla, usa la escala indicada.</p>
+          <div class="grid two">
+            <label>P12. Ambiente y decoración <select name="p12_ambiente" required><option value="">Selecciona…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+            <label>P13. Limpieza y orden <select name="p13_limpieza" required><option value="">Selecciona…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+            <label>P14. Espacio disponible <select name="p14_espacio" required><option value="">Selecciona…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+            <label>P15. Clima y ventilación <select name="p15_ventilacion" required><option value="">Selecciona…</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+            <label class="full">P16. ¿Con qué frecuencia miraste la TV o pantalla? <select name="p16_frecuencia_pantalla" required><option value="">Selecciona…</option><option value="1">1 · Nunca</option><option value="2">2 · Rara vez</option><option value="3">3 · Ocasionalmente</option><option value="4">4 · Frecuentemente</option><option value="5">5 · Continuamente</option></select></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>V. Datos generales</legend>
+          <div class="grid two">
+            <label>P17. Género (opcional) <select name="p17_genero"><option value="">Prefiero no responder / sin respuesta</option><option>Femenino</option><option>Masculino</option><option>Otro</option><option>Prefiero no responder</option></select></label>
+            <label>P18. Edad <input name="p18_edad" type="number" min="1" max="120" placeholder="Edad en años"></label>
+            <label>P19. Nivel educativo <select name="p19_educacion"><option value="">Selecciona…</option><option>Primaria</option><option>Secundaria</option><option>Técnico</option><option>Universitario</option><option>Posgrado</option><option>Otro</option><option>Prefiero no responder</option></select></label>
+          </div>
+        </fieldset>
+        <button class="submit" type="submit">Enviar cuestionario cuantitativo <span aria-hidden="true">→</span></button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel" id="qual-panel" role="tabpanel" aria-labelledby="tab-qual" hidden>
+      <div class="panel-heading"><span class="number">02</span><div><h2>Cuestionario cualitativo</h2><p>Queremos comprender cómo vives la espera en Llamas-te Restolounge.</p></div></div>
+      <form id="qual-form" data-form-type="Cualitativo">
+        <fieldset><legend>Contexto de visita</legend>
+          <label>Q1. Habitualmente, ¿en qué contexto o compañía acudes al local? <select name="q1_contexto" required><option value="">Selecciona una opción…</option><option>Solo(a).</option><option>Con amigos / compañeros universitarios.</option><option>En pareja.</option><option>Entre clases / con tiempo ajustado.</option></select></label>
+        </fieldset>
+        <fieldset><legend>Tu experiencia de espera</legend>
+          <label>Q2. Tiempo ocupado vs. tiempo desocupado (Principio de Distracción)<span class="question">¿Qué elementos o actividades dentro del ambiente del local (música, decoración, pantalla, menú, interacción social) te ayudan a distraerte o hacen que la espera se sienta más breve?</span><textarea name="q2_distraccion" rows="4" required placeholder="Escribe tu respuesta…"></textarea></label>
+          <label>Q3. Incertidumbre vs. información (Esperas explicadas o inciertas)<span class="question">¿Cómo influye en tu tranquilidad que el personal te informe con precisión desde el inicio cuánto tardará tu pedido o la razón de una eventual demora?</span><textarea name="q3_informacion" rows="4" required placeholder="Escribe tu respuesta…"></textarea></label>
+          <label>Q4. Sensación de justicia y orden (Esperas justas o injustas)<span class="question">¿Qué sensaciones u opiniones te genera observar el orden de atención cuando hay alta afluencia de clientes en Llamas-te Restolounge?</span><textarea name="q4_justicia" rows="4" required placeholder="Escribe tu respuesta…"></textarea></label>
+          <label>Q5. Esperas pre-proceso vs. en-proceso (Inicio del servicio)<span class="question">¿Qué diferencia genera en tu percepción de atención el tiempo que transcurre desde que te sientas hasta que toman tu pedido, en comparación con el tiempo que tarda en llegar la comida a la mesa?</span><textarea name="q5_etapas_espera" rows="4" required placeholder="Escribe tu respuesta…"></textarea></label>
+          <label>Q6. Fidelización e intención de retorno (Valor percibido)<span class="question">Si tuvieras que recomendar o volver a elegir Llamas-te Restolounge entre otras opciones universitarias, ¿de qué manera el tiempo de servicio define si decides regresar o buscar otra alternativa?</span><textarea name="q6_retorno" rows="4" required placeholder="Escribe tu respuesta…"></textarea></label>
+        </fieldset>
+        <button class="submit" type="submit">Enviar cuestionario cualitativo <span aria-hidden="true">→</span></button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <p class="privacy-note">Tus respuestas se usarán para analizar y mejorar la experiencia de espera y atención. Evita incluir datos personales sensibles en las respuestas abiertas.</p>
+  </main>
+  <footer><span>Llamas-te Restolounge</span><span>Encuesta de experiencia del cliente</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

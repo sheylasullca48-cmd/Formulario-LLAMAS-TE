@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cuestionario de campo sobre tiempos de espera y satisfacción del cliente de Llamas-te Restolounge.">
+  <title>Encuesta de Espera y Satisfacción | Llamas-te</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="brand-mark">LT</div>
+    <p class="eyebrow">LLAMAS-TE RESTOLOUNGE</p>
+    <h1>Tu experiencia nos importa</h1>
+    <p class="intro">Encuesta sobre tiempo de espera y satisfacción del cliente</p>
+    <div class="meta"><span>⏱ 3–5 minutos</span><span>🔒 Respuestas para fines de investigación</span></div>
+  </header>
+
+  <main class="container">
+    <div class="notice"><strong>Indicaciones:</strong> responde pensando en tu experiencia de hoy. No hay respuestas correctas o incorrectas. Los campos de registro observacional son para el evaluador; si eres cliente, puedes dejarlos sin completar.</div>
+    <form id="surveyForm">
+      <section class="panel">
+        <div class="section-heading"><span class="number">01</span><div><h2>Registro observacional</h2><p>Completa esta sección como evaluador, si corresponde.</p></div></div>
+        <div class="grid">
+          <label>Código de usuario<input name="codigo_usuario" placeholder="Ej. LT-001"></label>
+          <label>Fecha de evaluación<input name="fecha_turno" type="date"></label>
+          <label>Hora de llegada<input name="hora_llegada" type="time"></label>
+          <label>Hora de cita programada<input name="hora_cita_observada" type="time"></label>
+          <label>Hora de inicio de atención<input name="hora_inicio_atencion" type="time"></label>
+          <label>Tiempo total en sala (T1), minutos<input name="t1_total_sala" type="number" min="0" step="1" placeholder="Minutos"></label>
+          <label>Demora real (T2), minutos<input name="t2_demora_real" type="number" min="0" step="1" placeholder="Minutos"></label>
+        </div>
+        <fieldset><legend>Entorno / distractor</legend>
+          <div class="options"><label class="choice"><input type="radio" name="entorno_tv" value="TV activa"> TV activa</label><label class="choice"><input type="radio" name="entorno_tv" value="Sin TV"> Sin TV</label></div>
+        </fieldset>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading"><span class="number">02</span><div><h2>Percepción del tiempo y satisfacción</h2><p>Preguntas 1 a 5</p></div></div>
+        <label>1. ¿A qué hora exacta estaba programada tu atención o pedido?<input name="p1_hora_programada" type="time"></label>
+        <label>2. ¿Cuántos minutos calculas que permaneciste en total esperando desde tu llegada?<input name="p2_tiempo_total_percibido" type="number" min="0" step="1" placeholder="Minutos" required></label>
+        <label>3. ¿Cuántos minutos consideras que esperaste desde la hora programada hasta ser atendido/a?<input name="p3_demora_percibida" type="number" min="0" step="1" placeholder="Minutos" required></label>
+        <label>4. Para este tipo de servicio, ¿cuál es el tiempo máximo de espera que consideras tolerable o aceptable?<input name="p4_tiempo_aceptable" type="number" min="0" step="1" placeholder="Minutos" required></label>
+        <label>5. En una escala del 1 al 10, ¿cuál es tu nivel de satisfacción general con el servicio recibido hoy?</label>
+        <div class="scale scale-10" role="group" aria-label="Satisfacción general">
+          <label><input type="radio" name="p5_satisfaccion" value="1" required><span>1</span></label><label><input type="radio" name="p5_satisfaccion" value="2"><span>2</span></label><label><input type="radio" name="p5_satisfaccion" value="3"><span>3</span></label><label><input type="radio" name="p5_satisfaccion" value="4"><span>4</span></label><label><input type="radio" name="p5_satisfaccion" value="5"><span>5</span></label><label><input type="radio" name="p5_satisfaccion" value="6"><span>6</span></label><label><input type="radio" name="p5_satisfaccion" value="7"><span>7</span></label><label><input type="radio" name="p5_satisfaccion" value="8"><span>8</span></label><label><input type="radio" name="p5_satisfaccion" value="9"><span>9</span></label><label><input type="radio" name="p5_satisfaccion" value="10"><span>10</span></label>
+        </div>
+        <div class="scale-labels"><span>1 = Muy insatisfecho/a</span><span>10 = Muy satisfecho/a</span></div>
+        <div class="result" id="disconfirmationBox"><strong>Indicador de disconfirmación de tolerancia</strong><p>Se calculará al completar las preguntas 3 y 4: tiempo aceptable (P4) − demora percibida (P3).</p><output id="disconfirmation">Pendiente</output><small>Un resultado negativo indica que la demora percibida superó el límite de tolerancia declarado.</small></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading"><span class="number">03</span><div><h2>Juicios y reacciones durante la espera</h2><p>Preguntas 6 a 11</p></div></div>
+        <label>6. En términos generales, el tiempo que tuviste que esperar hoy te pareció:</label>
+        <div class="likert vertical">
+          <label><input type="radio" name="p6_duracion" value="1" required><span>1 — Muy corto</span></label>
+          <label><input type="radio" name="p6_duracion" value="2"><span>2 — Corto</span></label>
+          <label><input type="radio" name="p6_duracion" value="3"><span>3 — Ni corto ni largo</span></label>
+          <label><input type="radio" name="p6_duracion" value="4"><span>4 — Largo</span></label>
+          <label><input type="radio" name="p6_duracion" value="5"><span>5 — Muy largo</span></label>
+        </div>
+        <p class="question-intro">Marca el número que mejor represente tus sentimientos mientras esperabas. En estas escalas, 1 representa el polo positivo y 5 el polo negativo.</p>
+        <div class="likert-question"><p><strong>7.</strong> Sin irritación / Calmo → Muy irritado</p><div class="scale"><label><input type="radio" name="p7_irritacion" value="1" required><span>1</span></label><label><input type="radio" name="p7_irritacion" value="2"><span>2</span></label><label><input type="radio" name="p7_irritacion" value="3"><span>3</span></label><label><input type="radio" name="p7_irritacion" value="4"><span>4</span></label><label><input type="radio" name="p7_irritacion" value="5"><span>5</span></label></div></div>
+        <div class="likert-question"><p><strong>8.</strong> Espera justa / equitativa → Muy injusta</p><div class="scale"><label><input type="radio" name="p8_justicia" value="1" required><span>1</span></label><label><input type="radio" name="p8_justicia" value="2"><span>2</span></label><label><input type="radio" name="p8_justicia" value="3"><span>3</span></label><label><input type="radio" name="p8_justicia" value="4"><span>4</span></label><label><input type="radio" name="p8_justicia" value="5"><span>5</span></label></div></div>
+        <div class="likert-question"><p><strong>9.</strong> Sin molestias / Paciente → Muy molesto/a o fastidiado/a</p><div class="scale"><label><input type="radio" name="p9_molestia" value="1" required><span>1</span></label><label><input type="radio" name="p9_molestia" value="2"><span>2</span></label><label><input type="radio" name="p9_molestia" value="3"><span>3</span></label><label><input type="radio" name="p9_molestia" value="4"><span>4</span></label><label><input type="radio" name="p9_molestia" value="5"><span>5</span></label></div></div>
+        <div class="likert-question"><p><strong>10.</strong> Entretenido/a → Aburrido/a</p><div class="scale"><label><input type="radio" name="p10_aburrimiento" value="1" required><span>1</span></label><label><input type="radio" name="p10_aburrimiento" value="2"><span>2</span></label><label><input type="radio" name="p10_aburrimiento" value="3"><span>3</span></label><label><input type="radio" name="p10_aburrimiento" value="4"><span>4</span></label><label><input type="radio" name="p10_aburrimiento" value="5"><span>5</span></label></div></div>
+        <div class="likert-question"><p><strong>11.</strong> Relajado/a / Tranquilo/a → Estresado/a / Ansioso/a</p><div class="scale"><label><input type="radio" name="p11_estres" value="1" required><span>1</span></label><label><input type="radio" name="p11_estres" value="2"><span>2</span></label><label><input type="radio" name="p11_estres" value="3"><span>3</span></label><label><input type="radio" name="p11_estres" value="4"><span>4</span></label><label><input type="radio" name="p11_estres" value="5"><span>5</span></label></div></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading"><span class="number">04</span><div><h2>Entorno y uso de pantalla</h2><p>Preguntas 12 a 16</p></div></div>
+        <p class="question-intro">Califica las condiciones físicas de la sala (1 = Muy malo, 5 = Excelente).</p>
+        <div class="grid">
+          <label>12. Atmósfera / decoración<select name="p12_decoracion" required><option value="">Selecciona…</option><option value="1">1 — Muy malo</option><option value="2">2 — Malo</option><option value="3">3 — Regular</option><option value="4">4 — Bueno</option><option value="5">5 — Excelente</option></select></label>
+          <label>13. Limpieza y orden<select name="p13_limpieza" required><option value="">Selecciona…</option><option value="1">1 — Muy malo</option><option value="2">2 — Malo</option><option value="3">3 — Regular</option><option value="4">4 — Bueno</option><option value="5">5 — Excelente</option></select></label>
+          <label>14. Amplitud y espacio<select name="p14_espacio" required><option value="">Selecciona…</option><option value="1">1 — Muy malo</option><option value="2">2 — Malo</option><option value="3">3 — Regular</option><option value="4">4 — Bueno</option><option value="5">5 — Excelente</option></select></label>
+          <label>15. Clima y ventilación<select name="p15_ventilacion" required><option value="">Selecciona…</option><option value="1">1 — Muy malo</option><option value="2">2 — Malo</option><option value="3">3 — Regular</option><option value="4">4 — Bueno</option><option value="5">5 — Excelente</option></select></label>
+        </div>
+        <label>16. Si había televisión en la sala, ¿con qué frecuencia observaste la pantalla?
+          <select name="p16_uso_tv" required><option value="">Selecciona…</option><option value="1">1 — No la miré</option><option value="2">2 — Rara vez</option><option value="3">3 — De vez en cuando</option><option value="4">4 — Frecuentemente</option><option value="5">5 — Continuamente</option><option value="No había TV">No había TV</option></select>
+        </label>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading"><span class="number">05</span><div><h2>Datos demográficos</h2><p>Preguntas 17 a 19</p></div></div>
+        <label>17. Género
+          <select name="p17_genero" required><option value="">Selecciona…</option><option value="Femenino">Femenino</option><option value="Masculino">Masculino</option><option value="Prefiero no responder">Prefiero no responder</option><option value="Otro">Otro</option></select>
+        </label>
+        <label>18. Edad (años cumplidos)<input name="p18_edad" type="number" min="1" max="120" step="1" placeholder="Edad" required></label>
+        <label>19. Nivel de estudios
+          <select name="p19_estudios" required><option value="">Selecciona…</option><option value="Primaria/Secundaria">Primaria / Secundaria</option><option value="Técnico/Universitario">Técnico / Universitario</option><option value="Posgrado">Posgrado</option><option value="Otro">Otro</option><option value="Prefiero no responder">Prefiero no responder</option></select>
+        </label>
+      </section>
+
+      <section class="consent">
+        <label class="consent-line"><input type="checkbox" id="consent" required> Confirmo que he respondido voluntariamente y entiendo que mis respuestas se utilizarán con fines de investigación.</label>
+      </section>
+      <div class="actions"><button type="submit" class="primary">Enviar respuestas</button><button type="button" id="downloadCsv" class="secondary">Descargar respuestas como CSV</button></div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p class="footnote">Antes de recopilar datos reales, informa a los participantes sobre el propósito del estudio y protege la confidencialidad. Este formulario no solicita nombre ni datos de contacto.</p>
+    </form>
+    <footer>Instrumento de campo personalizado · Llamas-te Restolounge</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
